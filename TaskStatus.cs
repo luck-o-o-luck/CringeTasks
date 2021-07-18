@@ -7,6 +7,6 @@ namespace Test
     {
         New = 0,
         Process,
-        End
+        Finished
     }
 }

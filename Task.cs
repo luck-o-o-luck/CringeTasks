@@ -6,6 +6,6 @@ namespace Test
     class Task : TaskBase
     {
         public List<SubTask> SubTasks = new List<SubTask>();
-        public int CompletedTasks = 0;
+        public int Completed = 0;
     }
 }
