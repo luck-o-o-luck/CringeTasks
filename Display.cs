@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Test
 {
@@ -31,6 +32,15 @@ namespace Test
             foreach (Task task in group.Tasks)
                 Console.WriteLine($"\t id {task.Id} name {task.Name}" +
                                   $" date {task.DueDate}");
+        }
+
+        public static void PrintAll (List <Task> tasks, List <GroupTask> groups)
+        {
+            foreach (Task task in tasks)
+                PrintTask(task);
+
+            foreach (GroupTask group in groups)
+                PrintGroup(group);
         }
     }
 }
