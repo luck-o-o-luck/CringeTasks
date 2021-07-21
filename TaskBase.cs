@@ -10,5 +10,7 @@ namespace Test
         public TaskStatus Status { get; set; }
         public DateTime DueDate { get; set; }
 
+        public bool IsChild = false; 
+
     }
 }

@@ -16,16 +16,18 @@ namespace Test
                 Console.WriteLine($"id {task.Id} name {task.Name} date {task.DueDate.ToShortDateString()}");
 
             foreach (SubTask subTask in task.SubTasks)
-                PrintSubTask(subTask);
+                if (!subTask.IsChild)
+                    PrintSubTask(subTask);
         }
 
         public static void PrintSubTask(SubTask subTask)
         {
-            Console.WriteLine($"\t id {subTask.Id} name {subTask.Name} " +
+            if (!subTask.IsChild)
+                Console.WriteLine($"\t id {subTask.Id} name {subTask.Name} " +
                               $"date {subTask.DueDate}");
         }
 
-        public static void PrintGroup(GroupTask group)
+        public static void PrintGroup(GroupTasks group)
         {
             Console.WriteLine($"Name {group.Name}");
 
@@ -34,12 +36,15 @@ namespace Test
                                   $" date {task.DueDate}");
         }
 
-        public static void PrintAll (List <Task> tasks, List <GroupTask> groups)
+        public static void PrintAll(List <Task> tasks, List <GroupTasks> groups = null)
         {
             foreach (Task task in tasks)
-                PrintTask(task);
+                if(!task.IsChild)
+                    PrintTask(task);
 
-            foreach (GroupTask group in groups)
+            if (groups == null) return;
+
+            foreach (GroupTasks group in groups)
                 PrintGroup(group);
         }
     }

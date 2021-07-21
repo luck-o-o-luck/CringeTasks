@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 namespace Test
 {
-    class GroupTask
+    class GroupTasks
     {
-        public string Name { get; set; }
+        public string Name { get; }
+
+        public GroupTasks(string name) { Name = name; }
 
         public List<Task> Tasks = new List<Task>();
     }
